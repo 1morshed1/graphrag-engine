@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Virtual envs
+.venv/
+venv/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+
+# Engine artifacts (persisted graphs/indexes created at runtime)
+data/*.sqlite
+data/*.db
+*.graphrag
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
