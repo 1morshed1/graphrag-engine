@@ -1,0 +1,5 @@
+Patrick Collison co-founded Stripe, a payments company based in San Francisco. Patrick Collison studied at MIT before starting the company. Sequoia Capital invested in Stripe during its early funding rounds. Stripe developed a payments API that many startups use.
+
+Vlad Tenev co-founded Robinhood, a stock trading company. Vlad Tenev studied at Stanford University. Sequoia Capital invested in Robinhood as it grew. Robinhood built a mobile trading platform.
+
+Sequoia Capital is a venture firm based in Menlo Park. Sequoia Capital backed many fintech startups. Menlo Park is located in California.

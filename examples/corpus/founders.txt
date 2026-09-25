@@ -1,0 +1,5 @@
+Brian Chesky co-founded Airbnb, a marketplace for lodging. Brian Chesky studied at Rhode Island School of Design. Sequoia Capital invested in Airbnb early. Airbnb is based in San Francisco.
+
+Drew Houston co-founded Dropbox, a file storage company. Drew Houston studied at MIT. Sequoia Capital invested in Dropbox. Dropbox built a file syncing platform.
+
+Jensen Huang co-founded Nvidia, a chip company. Jensen Huang studied at Stanford University. Nvidia developed GPUs that OpenAI uses to train large models. Nvidia is based in Santa Clara.

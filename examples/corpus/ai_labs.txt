@@ -1,0 +1,5 @@
+Sam Altman leads OpenAI, an artificial intelligence lab based in San Francisco. Sam Altman studied at Stanford University. OpenAI developed GPT, a large language model. Microsoft invested in OpenAI heavily.
+
+Demis Hassabis co-founded DeepMind, an AI research lab. Demis Hassabis studied at Cambridge. DeepMind built AlphaFold, a protein folding model. Google acquired DeepMind.
+
+OpenAI uses large clusters of GPUs to train models. DeepMind uses reinforcement learning to develop agents. Both OpenAI and DeepMind are located in major technology hubs.
