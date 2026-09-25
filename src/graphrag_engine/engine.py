@@ -61,13 +61,13 @@ class GraphRAGEngine:
     # --- construction shortcuts -------------------------------------------------------
 
     @classmethod
-    def default(cls, config: Config | None = None) -> "GraphRAGEngine":
+    def default(cls, config: Config | None = None) -> GraphRAGEngine:
         """Fully offline engine using the deterministic mock providers."""
         llm, embedder = make_providers("mock")
         return cls(llm, embedder, config)
 
     @classmethod
-    def from_preset(cls, preset: str, config: Config | None = None) -> "GraphRAGEngine":
+    def from_preset(cls, preset: str, config: Config | None = None) -> GraphRAGEngine:
         llm, embedder = make_providers(preset)
         return cls(llm, embedder, config)
 
@@ -84,7 +84,7 @@ class GraphRAGEngine:
 
         # 2) Embed and index the chunks (vector-search half).
         embeddings = self.embedder.embed([c.text for c in self.chunks])
-        for chunk, emb in zip(self.chunks, embeddings):
+        for chunk, emb in zip(self.chunks, embeddings, strict=True):
             chunk.embedding = emb
             self.chunk_store.add(chunk.id, emb, chunk.text)
 
@@ -133,7 +133,10 @@ class GraphRAGEngine:
             graph_items = self._graph_retriever.retrieve(question, self.graph, self.chunk_texts)
         if mode in ("hybrid", "vector"):
             vector_items = self._vector_retriever.retrieve(
-                question, self.chunk_store, self.community_store
+                question,
+                self.chunk_store,
+                self.community_store,
+                include_communities=(mode == "hybrid"),
             )
 
         if mode == "graph":

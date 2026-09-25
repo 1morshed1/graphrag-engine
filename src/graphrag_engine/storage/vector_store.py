@@ -61,7 +61,7 @@ class VectorStore:
         }
 
     @classmethod
-    def from_dict(cls, data: dict) -> "VectorStore":
+    def from_dict(cls, data: dict) -> VectorStore:
         store = cls(dim=data["dim"])
         store._ids = list(data["ids"])
         store._payloads = list(data["payloads"])

@@ -218,5 +218,5 @@ class MockLLMProvider(LLMProvider):
         )
         top = scored[:3]
         return (
-            f"Based on the retrieved context: " + " ".join(top)
+            "Based on the retrieved context: " + " ".join(top)
         )

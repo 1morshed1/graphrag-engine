@@ -19,7 +19,11 @@ class VectorRetriever:
         self.config = config
 
     def retrieve(
-        self, query: str, chunk_store: VectorStore, community_store: VectorStore
+        self,
+        query: str,
+        chunk_store: VectorStore,
+        community_store: VectorStore,
+        include_communities: bool = True,
     ) -> list[RetrievedItem]:
         q = self.embedder.embed_one(query)
         items: list[RetrievedItem] = []
@@ -29,10 +33,14 @@ class VectorRetriever:
                 RetrievedItem(id=cid, text=text, kind="chunk", score=score, source="vector")
             )
 
-        for cid, text, score in community_store.search(q, self.config.community_top_k):
-            items.append(
-                RetrievedItem(
-                    id=cid, text=text, kind="community", score=score, source="vector"
+        # Community summaries only exist because we built the knowledge graph, so a true
+        # vanilla-vector baseline must not use them. The engine passes
+        # ``include_communities=False`` for pure "vector" mode and True for "hybrid".
+        if include_communities:
+            for cid, text, score in community_store.search(q, self.config.community_top_k):
+                items.append(
+                    RetrievedItem(
+                        id=cid, text=text, kind="community", score=score, source="vector"
+                    )
                 )
-            )
         return items

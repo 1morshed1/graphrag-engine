@@ -26,7 +26,7 @@ class EntityType(str, Enum):
     CONCEPT = "Concept"
 
     @classmethod
-    def coerce(cls, value: str) -> "EntityType":
+    def coerce(cls, value: str) -> EntityType:
         """Map a raw LLM string onto a known type, defaulting to CONCEPT.
 
         LLMs return messy casing/synonyms; this normalizes them instead of crashing.
@@ -85,7 +85,7 @@ class Entity:
         """The canonical identity used for deduplication and graph node ids."""
         return normalize_name(self.name)
 
-    def merge(self, other: "Entity") -> None:
+    def merge(self, other: Entity) -> None:
         """Fold another entity that we decided is the *same* real-world thing into this one.
 
         We keep the longer description (usually more informative) and union the chunk

@@ -1,0 +1,7 @@
+Fei-Fei Li leads a computer vision lab. Fei-Fei Li studied at Princeton and teaches at Stanford University. Fei-Fei Li created ImageNet, a large image dataset. ImageNet advanced deep learning research.
+
+Andrew Ng co-founded Coursera, an online education company. Andrew Ng teaches at Stanford University. Andrew Ng led the Google Brain team. Coursera is based in Mountain View.
+
+Yann LeCun leads AI research at Meta. Yann LeCun developed convolutional neural networks. Meta uses convolutional neural networks in its products. Yann LeCun studied in Paris.
+
+Geoffrey Hinton developed backpropagation techniques. Geoffrey Hinton worked at Google. Geoffrey Hinton studied at Cambridge. Backpropagation is used to train neural networks.
