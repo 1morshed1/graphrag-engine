@@ -53,9 +53,7 @@ class CommunityBuilder:
         raw = parse_json_object(self.llm.complete(render_community_summary(description)))
         community.title = (raw.get("title") or "").strip() or f"Community {community.id}"
         community.summary = (raw.get("summary") or "").strip() or description
-        community.embedding = self.embedder.embed_one(
-            f"{community.title}. {community.summary}"
-        )
+        community.embedding = self.embedder.embed_one(f"{community.title}. {community.summary}")
 
     def _describe(self, community: Community, graph: GraphStore) -> str:
         """Build the raw text fed to the summarizer: entities and their internal relations."""
@@ -70,5 +68,5 @@ class CommunityBuilder:
             if src in member_set and tgt in member_set:
                 s, t = graph.entity(src), graph.entity(tgt)
                 if s and t:
-                    lines.append(f"- {s.name} {data.get('relation','')} {t.name}")
+                    lines.append(f"- {s.name} {data.get('relation', '')} {t.name}")
         return "\n".join(lines)

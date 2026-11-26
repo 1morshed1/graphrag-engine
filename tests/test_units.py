@@ -15,6 +15,7 @@ from graphrag_engine.utils import parse_json_array, parse_json_object
 
 # --- models -----------------------------------------------------------------------------
 
+
 def test_normalize_name_collapses_variants():
     assert normalize_name("  Sequoia   Capital. ") == "sequoia capital"
     assert normalize_name("SEQUOIA capital") == "sequoia capital"
@@ -36,6 +37,7 @@ def test_entity_merge_unions_chunks_and_keeps_longer_description():
 
 # --- chunker ----------------------------------------------------------------------------
 
+
 def test_chunker_overlaps_and_splits():
     text = " ".join(f"Sentence number {i} here." for i in range(20))
     chunks = Chunker(chunk_size=100, chunk_overlap=30).chunk_document(text, "doc")
@@ -54,6 +56,7 @@ def test_chunker_rejects_bad_overlap():
 
 # --- utils ------------------------------------------------------------------------------
 
+
 def test_parse_json_handles_fences_and_prose():
     assert parse_json_object('```json\n{"a": 1}\n```') == {"a": 1}
     assert parse_json_object('here you go: {"a": 1} thanks') == {"a": 1}
@@ -62,6 +65,7 @@ def test_parse_json_handles_fences_and_prose():
 
 
 # --- kg builder dedup -------------------------------------------------------------------
+
 
 def test_kg_builder_dedups_repeated_entities():
     llm, emb = make_providers("mock")
@@ -80,6 +84,7 @@ def test_kg_builder_dedups_repeated_entities():
 
 # --- graph store BFS --------------------------------------------------------------------
 
+
 def test_graph_bfs_reaches_multi_hop_chunks():
     store = GraphStore()
     for key, chunk in [("a", "ca"), ("b", "cb"), ("c", "cc")]:
@@ -96,6 +101,7 @@ def test_graph_bfs_reaches_multi_hop_chunks():
 
 # --- vector store -----------------------------------------------------------------------
 
+
 def test_vector_store_search_ranks_by_similarity():
     store = VectorStore(dim=3)
     store.add("x", [1.0, 0.0, 0.0], "x")
@@ -106,6 +112,7 @@ def test_vector_store_search_ranks_by_similarity():
 
 
 # --- community detection ----------------------------------------------------------------
+
 
 def test_detect_communities_separates_disconnected_clusters():
     import networkx as nx
@@ -123,11 +130,16 @@ def test_detect_communities_separates_disconnected_clusters():
 
 # --- fusion -----------------------------------------------------------------------------
 
+
 def test_rrf_rewards_agreement_across_lists():
-    list1 = [RetrievedItem("shared", "s", "chunk", 0.9, "graph"),
-             RetrievedItem("only1", "o", "chunk", 0.8, "graph")]
-    list2 = [RetrievedItem("shared", "s", "chunk", 0.7, "vector"),
-             RetrievedItem("only2", "o", "chunk", 0.6, "vector")]
+    list1 = [
+        RetrievedItem("shared", "s", "chunk", 0.9, "graph"),
+        RetrievedItem("only1", "o", "chunk", 0.8, "graph"),
+    ]
+    list2 = [
+        RetrievedItem("shared", "s", "chunk", 0.7, "vector"),
+        RetrievedItem("only2", "o", "chunk", 0.6, "vector"),
+    ]
     fused = reciprocal_rank_fusion([list1, list2], k=60, top_k=3)
     # The item appearing in BOTH lists should rank first.
     assert fused[0].id == "shared"

@@ -40,8 +40,7 @@ def test_save_and_load_roundtrip(engine, tmp_path):
 
 def test_hybrid_beats_vector_overall():
     """The headline claim: hybrid retrieval has higher overall context recall."""
-    cfg = Config(chunk_size=180, chunk_overlap=40, vector_top_k=4, community_top_k=2,
-                 final_top_k=8)
+    cfg = Config(chunk_size=180, chunk_overlap=40, vector_top_k=4, community_top_k=2, final_top_k=8)
     eng = GraphRAGEngine.default(cfg)
     eng.ingest_directory("examples/corpus")
     reports = evaluate(eng)

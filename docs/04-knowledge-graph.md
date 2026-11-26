@@ -61,9 +61,9 @@ edges — a nasty, hard-to-spot bug.
 
 ```python
 # relation endpoint resolution
-source = alias.get(normalize_name(raw["source"]))   # "sequoia" -> "sequoia capital"
+source = alias.get(normalize_name(raw["source"]))  # "sequoia" -> "sequoia capital"
 target = alias.get(normalize_name(raw["target"]))
-if source in entities and target in entities:        # drop dangling edges
+if source in entities and target in entities:  # drop dangling edges
     add_edge(source, relation, target)
 ```
 

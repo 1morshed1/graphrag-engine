@@ -18,8 +18,8 @@ from dataclasses import dataclass
 @dataclass
 class QAItem:
     question: str
-    category: str          # "single_hop" | "multi_hop" | "global"
-    expected: list[str]    # keywords that must all appear in retrieved context
+    category: str  # "single_hop" | "multi_hop" | "global"
+    expected: list[str]  # keywords that must all appear in retrieved context
 
 
 # NOTE: the multi-hop items deliberately require connecting facts that live in *different*
@@ -30,7 +30,6 @@ DATASET: list[QAItem] = [
     QAItem("Where is Stripe based?", "single_hop", ["San Francisco"]),
     QAItem("What did Demis Hassabis co-found?", "single_hop", ["DeepMind"]),
     QAItem("Who invested in Robinhood?", "single_hop", ["Sequoia"]),
-
     # --- multi hop (cross-document) ---
     QAItem(
         "Which chip company, founded by a Stanford alum, makes the GPUs OpenAI uses?",
@@ -47,7 +46,6 @@ DATASET: list[QAItem] = [
         "multi_hop",
         ["Dropbox", "Sequoia"],
     ),
-
     # --- global ---
     QAItem("What are the main themes across these documents?", "global", ["community"]),
     QAItem("Summarize the groups of related organizations.", "global", ["community"]),

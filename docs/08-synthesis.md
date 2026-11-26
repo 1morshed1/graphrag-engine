@@ -29,10 +29,11 @@ Two deliberate choices:
 surface:
 
 ```python
-engine = GraphRAGEngine.default()          # offline mock providers
-engine.ingest_directory("examples/corpus") # build chunks, graph, communities, indexes
+engine = GraphRAGEngine.default()  # offline mock providers
+engine.ingest_directory("examples/corpus")  # build chunks, graph, communities, indexes
 answer = engine.query("...", mode="hybrid")
-engine.save("data/g.graphrag"); engine.load("data/g.graphrag")
+engine.save("data/g.graphrag")
+engine.load("data/g.graphrag")
 ```
 
 ### Why a facade?

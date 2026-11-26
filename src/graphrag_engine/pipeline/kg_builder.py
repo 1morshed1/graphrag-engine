@@ -53,9 +53,7 @@ class KnowledgeGraphBuilder:
             for raw_entity in raw.get("entities", []):
                 self._absorb_entity(raw_entity, chunk.id, entities, alias)
             for raw_rel in raw.get("relationships", []):
-                self._absorb_relation(
-                    raw_rel, chunk.id, entities, relations, seen_relations, alias
-                )
+                self._absorb_relation(raw_rel, chunk.id, entities, relations, seen_relations, alias)
 
         return GraphData(entities=entities, relations=relations)
 

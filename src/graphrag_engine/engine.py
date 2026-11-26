@@ -163,7 +163,7 @@ class GraphRAGEngine:
         """Persist all built state to a single file so you don't re-run extraction.
 
         We pickle the graph, chunks, communities, vector stores, and config. Pickle keeps
-        this simple for a learning project; a production system would use a real database
+        this simple here; a production system would use a real database
         (the storage interfaces leave room for that).
         """
         payload = {

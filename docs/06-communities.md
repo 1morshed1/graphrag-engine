@@ -37,9 +37,9 @@ best tool, degrade gracefully so the default install always runs.
 
 ```python
 try:
-    return _leiden(undirected, resolution)   # best, needs extras
+    return _leiden(undirected, resolution)  # best, needs extras
 except ImportError:
-    return _greedy_modularity(undirected)    # always works
+    return _greedy_modularity(undirected)  # always works
 ```
 
 `community_resolution` tunes granularity: higher → more, smaller communities.

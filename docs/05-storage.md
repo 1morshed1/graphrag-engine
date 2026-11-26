@@ -61,7 +61,7 @@ the whole "vector search" idea in ~10 lines — worth reading to demystify it.
 ## Persistence
 
 Both stores expose `to_dict`/`from_dict`, and the engine pickles the graph + stores + config
-into one `.graphrag` file. Pickle keeps a learning project simple; the interfaces are what
+into one `.graphrag` file. Pickle keeps things simple; the interfaces are what
 let a production build swap in Neo4j + pgvector without touching the pipeline.
 
 **Lesson:** the "dual index" (graph *and* vectors) is the structural signature of GraphRAG.

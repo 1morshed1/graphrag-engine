@@ -1,5 +1,8 @@
 # GraphRAG Engine
 
+[![CI](https://github.com/1morshed1/graphrag-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/1morshed1/graphrag-engine/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Knowledge-graph-enhanced retrieval — the next step past vanilla vector RAG. Builds an
 explicit knowledge graph from your documents (entities + relationships extracted by an
 LLM), then answers questions by combining **graph traversal**, **vector search**, and
@@ -9,7 +12,7 @@ It **runs offline out of the box**: the default providers are deterministic and 
 key, no database, and no GPU. Swap in OpenAI, Anthropic, or a local embedding model with a
 one-line change when you want real quality.
 
-> This repo is also a **learning project**. The [`docs/`](docs/) folder is a numbered
+> The [`docs/`](docs/) folder is a numbered
 > series that explains every design decision as it was made. Start with
 > [`docs/00-architecture.md`](docs/00-architecture.md).
 
@@ -44,7 +47,7 @@ Or from Python:
 ```python
 from graphrag_engine import GraphRAGEngine
 
-engine = GraphRAGEngine.default()          # offline mock providers
+engine = GraphRAGEngine.default()  # offline mock providers
 engine.ingest_directory("examples/corpus")
 answer = engine.query("What themes connect these companies?")
 print(answer.text)

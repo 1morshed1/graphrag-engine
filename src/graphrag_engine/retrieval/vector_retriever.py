@@ -39,8 +39,6 @@ class VectorRetriever:
         if include_communities:
             for cid, text, score in community_store.search(q, self.config.community_top_k):
                 items.append(
-                    RetrievedItem(
-                        id=cid, text=text, kind="community", score=score, source="vector"
-                    )
+                    RetrievedItem(id=cid, text=text, kind="community", score=score, source="vector")
                 )
         return items

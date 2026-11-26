@@ -46,28 +46,95 @@ _RELATION_VERBS = {
 
 # Cheap type inference keyed on words appearing in the surrounding description.
 _TYPE_HINTS = {
-    "Organization": ["capital", "ventures", "inc", "corp", "company", "labs", "university",
-                     "institute", "bank", "fund", "startup", "firm"],
+    "Organization": [
+        "capital",
+        "ventures",
+        "inc",
+        "corp",
+        "company",
+        "labs",
+        "university",
+        "institute",
+        "bank",
+        "fund",
+        "startup",
+        "firm",
+    ],
     "Location": ["valley", "city", "york", "francisco", "london", "california", "street"],
-    "Technology": ["python", "gpt", "model", "database", "framework", "api", "platform",
-                   "algorithm", "engine", "language"],
+    "Technology": [
+        "python",
+        "gpt",
+        "model",
+        "database",
+        "framework",
+        "api",
+        "platform",
+        "algorithm",
+        "engine",
+        "language",
+    ],
 }
 
 _STOPWORDS = {
-    "the", "a", "an", "and", "or", "but", "of", "to", "in", "on", "at", "for", "with",
-    "is", "was", "are", "were", "by", "as", "that", "this", "it", "from", "which", "who",
+    "the",
+    "a",
+    "an",
+    "and",
+    "or",
+    "but",
+    "of",
+    "to",
+    "in",
+    "on",
+    "at",
+    "for",
+    "with",
+    "is",
+    "was",
+    "are",
+    "were",
+    "by",
+    "as",
+    "that",
+    "this",
+    "it",
+    "from",
+    "which",
+    "who",
 }
 
 # Common sentence-initial words that get capitalized but are not entities.
 _NON_ENTITY_CAPS = {
-    "The", "A", "An", "This", "That", "These", "Those", "It", "He", "She", "They",
-    "We", "In", "On", "At", "For", "But", "And", "Or", "After", "Before", "When",
-    "While", "Their", "His", "Her", "Its",
+    "The",
+    "A",
+    "An",
+    "This",
+    "That",
+    "These",
+    "Those",
+    "It",
+    "He",
+    "She",
+    "They",
+    "We",
+    "In",
+    "On",
+    "At",
+    "For",
+    "But",
+    "And",
+    "Or",
+    "After",
+    "Before",
+    "When",
+    "While",
+    "Their",
+    "His",
+    "Her",
+    "Its",
 }
 
-_PROPER_NOUN = re.compile(
-    r"\b([A-Z][a-zA-Z0-9]*(?:\s+(?:of\s+|&\s+)?[A-Z][a-zA-Z0-9]*)*)"
-)
+_PROPER_NOUN = re.compile(r"\b([A-Z][a-zA-Z0-9]*(?:\s+(?:of\s+|&\s+)?[A-Z][a-zA-Z0-9]*)*)")
 
 
 class MockEmbeddingProvider(EmbeddingProvider):
@@ -217,6 +284,4 @@ class MockLLMProvider(LLMProvider):
             reverse=True,
         )
         top = scored[:3]
-        return (
-            "Based on the retrieved context: " + " ".join(top)
-        )
+        return "Based on the retrieved context: " + " ".join(top)

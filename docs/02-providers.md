@@ -19,7 +19,8 @@ two methods. That single seam is what makes the engine:
 
 ```python
 from graphrag_engine.providers import make_providers
-llm, embedder = make_providers("mock")      # offline default
+
+llm, embedder = make_providers("mock")  # offline default
 # llm, embedder = make_providers("openai")  # needs OPENAI_API_KEY
 ```
 

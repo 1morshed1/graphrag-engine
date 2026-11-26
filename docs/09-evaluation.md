@@ -3,7 +3,7 @@
 Source: [`evaluation/`](../src/graphrag_engine/evaluation/),
 [`examples/run_eval.py`](../examples/run_eval.py)
 
-A portfolio project that *claims* GraphRAG is better must **measure** it. This is the payoff
+A project that *claims* GraphRAG is better must **measure** it. This is the payoff
 doc.
 
 ## The metric: context recall (deterministic, no judge LLM)

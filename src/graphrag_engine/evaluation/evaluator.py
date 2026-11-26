@@ -76,11 +76,11 @@ def format_report(reports: dict[str, ModeReport]) -> str:
         row = f"{cat:<12}"
         for mode in MODES:
             score = reports[mode].by_category.get(cat, CategoryScore())
-            row += f"{score.accuracy*100:>9.0f}%"
+            row += f"{score.accuracy * 100:>9.0f}%"
         lines.append(row)
     lines.append("-" * len(header))
     overall = f"{'OVERALL':<12}"
     for mode in MODES:
-        overall += f"{reports[mode].overall.accuracy*100:>9.0f}%"
+        overall += f"{reports[mode].overall.accuracy * 100:>9.0f}%"
     lines.append(overall)
     return "\n".join(lines)

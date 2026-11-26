@@ -18,7 +18,7 @@ class VectorStore:
     def __init__(self, dim: int):
         self.dim = dim
         self._ids: list[str] = []
-        self._payloads: list[str] = []          # the text behind each vector
+        self._payloads: list[str] = []  # the text behind each vector
         self._matrix = np.zeros((0, dim), dtype=np.float32)
 
     def add(self, id: str, embedding: list[float], payload: str) -> None:

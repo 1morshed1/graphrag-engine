@@ -73,7 +73,7 @@ Each stage is a separate module so you can read, test, and swap them independent
 interfaces in `providers/`. We ship a `MockProvider` that is fully deterministic and needs
 no API key or network.
 
-**Why:** A learning project must *run on the reader's machine immediately*. If day one
+**Why:** The project must *run on the reader's machine immediately*. If day one
 required an OpenAI key, a Neo4j cluster, and a GPU, most people would never see it work.
 The mock lets every test and the full CLI demo run offline. Real providers
 (`OpenAIProvider`, `AnthropicProvider`) plug into the same interface when you add a key.
@@ -85,8 +85,8 @@ makes it untestable without spending money on every run.
 
 **What:** The graph lives in a `networkx.MultiDiGraph` in memory, persisted to SQLite.
 
-**Why:** Neo4j is the "production" answer, but it is a heavy external service. For a
-portfolio/learning engine, `networkx` gives us BFS, neighbor lookups, and — via
+**Why:** Neo4j is the "production" answer, but it is a heavy external service. At this
+scale, `networkx` gives us BFS, neighbor lookups, and — via
 `igraph`/`leidenalg` when available — the Leiden community algorithm, with zero services to
 run. SQLite makes the graph durable and inspectable with any SQLite browser. The storage
 layer is behind an interface (`GraphStore`), so a `Neo4jGraphStore` can be added later

@@ -51,7 +51,8 @@ def _stats(args: argparse.Namespace) -> int:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="graphrag", description="GraphRAG engine CLI")
     parser.add_argument(
-        "--preset", default="mock",
+        "--preset",
+        default="mock",
         help="provider preset: mock (default), local, openai, anthropic",
     )
     sub = parser.add_subparsers(dest="command", required=True)
